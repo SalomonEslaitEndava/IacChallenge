@@ -56,7 +56,7 @@ resource "google_compute_instance" "default" {
   }
 
   network_interface {
-    subnetwork    = google_compute_subnetwork.subnet.name
+    subnetwork    = google_compute_subnetwork.iac-subnet.name
     access_config = {}
     # address       = "${var.network_ip}"
   }
@@ -65,7 +65,7 @@ resource "google_compute_instance" "default" {
 
 resource "google_compute_firewall" "ssh" {
   name    = "ssh-rule"
-  network = google_compute_subnetwork.subnet.name
+  network = google_compute_subnetwork.iac-subnet.name
 
   allow {
     protocol = "tcp"
