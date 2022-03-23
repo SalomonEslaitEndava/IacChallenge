@@ -57,7 +57,7 @@ resource "google_compute_instance" "default" {
 
   network_interface {
     subnetwork    = google_compute_subnetwork.iac-subnet.name
-    # access_config = {}
+    access_config {}
     # address       = "${var.network_ip}"
   }
 
@@ -78,6 +78,7 @@ resource "google_compute_instance" "default" {
 resource "google_compute_firewall" "ssh" {
   name    = "ssh-rule"
   network = google_compute_network.iac-network.self_link
+  destination_ranges = [ "0.0.0.0/0" ]
   source_ranges = [ "0.0.0.0/0" ]
   allow {
     protocol = "tcp"
@@ -85,5 +86,5 @@ resource "google_compute_firewall" "ssh" {
   }
 
   #source_tags = ["iac-bastion"]
-  target_tags = ["iac-ssh"]
+  #target_tags = ["iac-ssh"]
 }
