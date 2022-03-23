@@ -33,7 +33,7 @@ resource "google_compute_subnetwork" "iac-subnet" {
   ip_cidr_range            = "10.0.0.0/24"
   network                  = google_compute_network.iac-network.self_link
   region                   = "us-west1"
-  private_ip_google_access = true
+  private_ip_google_access = false
 }
 
 resource "google_compute_instance" "default" {
@@ -62,7 +62,15 @@ resource "google_compute_instance" "default" {
   }
 
   metadata_startup_script = <<SCRIPT
+
     echo "Hola Endava" >> /tmp/file.txt
+    sudo yum update -y
+    sudo yum install httpd -y
+    sudo service httpd start
+    chkconfig httpd on
+
+    echo "<html><body>Hola soy Salomon y esto es mi IaC </body></html>" >> /var/www/html
+
     SCRIPT
 
 }
@@ -73,7 +81,7 @@ resource "google_compute_firewall" "ssh" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22"]
+    ports    = ["22","80"]
   }
 
   source_tags = ["iac-bastion"]
