@@ -51,7 +51,7 @@ resource "google_compute_instance" "vm_instance" {
   }
   network_interface {
     network = module.test-vpc-module.network_name
-    subnetwork   = module.test-vpc-module.subnets[subnet_name]
+    subnetwork   = module.test-vpc-module.subnets[].subnet_name
     access_config {
     }
   }
