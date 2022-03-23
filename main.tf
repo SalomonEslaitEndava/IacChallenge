@@ -61,6 +61,10 @@ resource "google_compute_instance" "default" {
     # address       = "${var.network_ip}"
   }
 
+  metadata_startup_script = <<SCRIPT
+    echo "Hola Endava" >> /tmp/file.txt
+    SCRIPT
+
 }
 
 resource "google_compute_firewall" "ssh" {
