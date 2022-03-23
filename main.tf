@@ -61,17 +61,7 @@ resource "google_compute_instance" "default" {
     # address       = "${var.network_ip}"
   }
 
-  metadata_startup_script = <<SCRIPT
-
-    echo "Hola Endava" >> /tmp/file.txt &&
-    sudo yum update -y &&
-    sudo yum install httpd -y &&
-    sudo service httpd start &&
-    sudo chkconfig httpd on && 
-    sudo echo "<html><body>Hola soy Salomon Eslait y esto es mi IaC </body></html>" >> /var/www/html/index.html &&
-    sudo systemctl restart httpd 
-
-    SCRIPT
+  metadata_startup_script = file("script.sh")
 
 }
 
