@@ -1,3 +1,3 @@
 variable "GOOGLE_CREDENTIALS" {
-  
+
 }

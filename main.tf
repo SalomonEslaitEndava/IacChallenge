@@ -1,6 +1,6 @@
 terraform {
   backend "remote" {
-    hostname = "app.terraform.io"
+    hostname     = "app.terraform.io"
     organization = "salomon"
 
     workspaces {
@@ -37,4 +37,22 @@ module "test-vpc-module" {
       subnet_region = "us-west1"
     }
   ]
+}
+
+resource "google_compute_instance" "vm_instance" {
+  name         = "vm-iac"
+  machine_type = "n1-standart-2"
+  zone         = "us-west1-a"
+  boot_disk {
+    initialize_params {
+      image = "centos-cloud/centos-7"
+    }
+  }
+  network_interface {
+    network = "iac-vpc"
+
+    access_config {
+      // Ephemeral IP
+    }
+  }
 }
