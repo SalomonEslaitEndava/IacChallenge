@@ -10,14 +10,14 @@ terraform {
 }
 
 provider "google" {
-  credentials = "$GOOGLE_CREDENTIALS"
+  credentials = var.GOOGLE_CREDENTIALS
   project     = "iac-challenge"
   region      = "us-west1"
   zone        = "us-west1-a"
 }
 
 provider "google-beta" {
-  credentials = "$GOOGLE_CREDENTIALS"
+  credentials = var.GOOGLE_CREDENTIALS
   project     = "iac-challenge"
   region      = "us-west1"
   zone        = "us-west1-a"
