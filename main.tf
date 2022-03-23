@@ -84,6 +84,6 @@ resource "google_compute_firewall" "ssh" {
     ports    = ["22","80"]
   }
 
-  source_tags = ["iac-bastion"]
+  #source_tags = ["iac-bastion"]
   target_tags = ["iac-ssh"]
 }
