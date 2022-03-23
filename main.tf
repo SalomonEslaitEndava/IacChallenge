@@ -11,16 +11,16 @@ terraform {
 
 provider "google" {
   credentials = var.GOOGLE_CREDENTIALS
-  project     = "iac-challenge"
-  region      = "us-west1"
-  zone        = "us-west1-a"
+  project     = var.project # "iac-challenge"
+  region      = var.region # "us-west1"
+  zone        = var.zone # "us-west1-a"
 }
 
 provider "google-beta" {
   credentials = var.GOOGLE_CREDENTIALS
-  project     = "iac-challenge"
-  region      = "us-west1"
-  zone        = "us-west1-a"
+  project     = var.project # "iac-challenge"
+  region      = var.region # "us-west1"
+  zone        = var.zone # "us-west1-a"
 }
 
 resource "google_compute_network" "iac-network" {
@@ -61,7 +61,7 @@ resource "google_compute_instance" "default" {
     # address       = "${var.network_ip}"
   }
 
-  metadata_startup_script = file("script.sh")
+  metadata_startup_script = file("script.sh") 
 
 }
 
