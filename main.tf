@@ -43,7 +43,7 @@ resource "google_compute_instance" "vm_instance" {
   name         = "vm-iac"
   machine_type = "n1-standart-2"
   zone         = "us-west1-a"
-  subnetwork   = module.test-vpc-module.subnet_name
+  
   boot_disk {
     initialize_params {
       image = "centos-cloud/centos-7"
@@ -51,6 +51,7 @@ resource "google_compute_instance" "vm_instance" {
   }
   network_interface {
     network = module.test-vpc-module.network_name
+    subnetwork   = module.test-vpc-module.subnet_name
     access_config {
     }
   }
