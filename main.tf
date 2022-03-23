@@ -67,9 +67,11 @@ resource "google_compute_instance" "default" {
     sudo yum update -y
     sudo yum install httpd -y
     sudo service httpd start
-    chkconfig httpd on
+    sudo chkconfig httpd on
 
-    echo "<html><body>Hola soy Salomon y esto es mi IaC </body></html>" >> /var/www/html
+    sudo echo "<html><body>Hola soy Salomon Eslait y esto es mi IaC </body></html>" >> /var/www/html/index.html
+
+    sudo systemctl restart httpd
 
     SCRIPT
 
