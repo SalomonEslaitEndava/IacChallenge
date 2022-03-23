@@ -49,10 +49,8 @@ resource "google_compute_instance" "vm_instance" {
     }
   }
   network_interface {
-    network = "iac-vpc"
-
+    network = module.test-vpc-module.network_name
     access_config {
-      // Ephemeral IP
     }
   }
 }
