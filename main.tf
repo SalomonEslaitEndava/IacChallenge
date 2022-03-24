@@ -65,6 +65,7 @@ resource "google_compute_instance" "default" {
 
 }
 
+
 resource "google_compute_firewall" "ssh" {
   name    = "ssh-rule"
   network = google_compute_network.iac-network.self_link
