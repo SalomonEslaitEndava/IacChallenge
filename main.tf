@@ -1,13 +1,4 @@
-terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "salomon"
 
-    workspaces {
-      name = "iacChallenge"
-    }
-  }
-}
 
 resource "google_compute_network" "iac-network" {
   name                    = "iac-network"
