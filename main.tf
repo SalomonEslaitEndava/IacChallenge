@@ -1,28 +1,3 @@
-terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "salomon"
-
-    workspaces {
-      name = "iacChallenge"
-    }
-  }
-}
-
-provider "google" {
-  credentials = var.GOOGLE_CREDENTIALS
-  project     = var.project # "iac-challenge"
-  region      = var.region # "us-west1"
-  zone        = var.zone # "us-west1-a"
-}
-
-provider "google-beta" {
-  credentials = var.GOOGLE_CREDENTIALS
-  project     = var.project # "iac-challenge"
-  region      = var.region # "us-west1"
-  zone        = var.zone # "us-west1-a"
-}
-
 resource "google_compute_network" "iac-network" {
   name                    = "iac-network"
   auto_create_subnetworks = false
@@ -64,7 +39,6 @@ resource "google_compute_instance" "default" {
   metadata_startup_script = file("script.sh") 
 
 }
-
 
 resource "google_compute_firewall" "ssh" {
   name    = "ssh-rule"
