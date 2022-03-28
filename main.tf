@@ -22,7 +22,7 @@ module "compute_engine" {
   machine_type              = "f1-micro"
   allow_stopping_for_update = true
   instance_image            = "centos-cloud/centos-7"
-  subnetwork = module.networking.subnet_name
+  subnetwork                = module.networking.subnet_name
 
   depends_on = [module.networking]
 }

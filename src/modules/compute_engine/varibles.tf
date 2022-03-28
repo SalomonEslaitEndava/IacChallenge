@@ -35,5 +35,7 @@ variable "instance_image" {
 }
 
 variable "subnetwork" {
-  
+  description = "subnet name by outputs"
+  type        = string
+  default     = ""
 }
