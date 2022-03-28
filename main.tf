@@ -16,10 +16,10 @@ module "networking" {
 module "compute_engine"{
   source = "./src/modules/compute_engine"
 
-  count = 1
-  name = "iac-vm"
-  zone = "us-west1-a"
+  instance_count = 1
+  instance_name = "iac-vm"
+  instance_zone = "us-west1-a"
   machine_type = "f1-micro"
   allow_stopping_for_update = true
-  image = "centos-cloud/centos-7"
+  instace_image = "centos-cloud/centos-7"
 }
