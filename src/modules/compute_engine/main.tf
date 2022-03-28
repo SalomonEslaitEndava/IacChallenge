@@ -1,11 +1,11 @@
 resource "google_compute_instance" "default" {
   count = var.instance_count # 1
-  name  = var.instance_name #"iac-vm"
-  zone  = var.instance_zone# "us-west1-a"
+  name  = var.instance_name  #"iac-vm"
+  zone  = var.instance_zone  # "us-west1-a"
   # tags                      = ["${concat(list("${var.name}-ssh", "${var.name}"), var.node_tags)}"]
   machine_type = var.machine_type #"f1-micro"
   # min_cpu_platform          = "${var.min_cpu_platform}"
-  allow_stopping_for_update = var.allow_stopping_for_update# true
+  allow_stopping_for_update = var.allow_stopping_for_update # true
 
   boot_disk {
     #auto_delete = "${var.disk_auto_delete}"

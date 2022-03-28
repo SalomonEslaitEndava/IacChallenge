@@ -13,15 +13,15 @@ module "networking" {
   ports                    = ["80"]
 }
 
-module "compute_engine"{
+module "compute_engine" {
   source = "./src/modules/compute_engine"
 
-  instance_count = 1
-  instance_name = "iac-vm"
-  instance_zone = "us-west1-a"
-  machine_type = "f1-micro"
+  instance_count            = 1
+  instance_name             = "iac-vm"
+  instance_zone             = "us-west1-a"
+  machine_type              = "f1-micro"
   allow_stopping_for_update = true
-  instance_image = "centos-cloud/centos-7"
-  
+  instance_image            = "centos-cloud/centos-7"
+
   depends_on = [module.networking]
 }
