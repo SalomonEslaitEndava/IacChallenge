@@ -3,7 +3,7 @@ module "networking"{
 
   networkname = "iac-network"
   auto_create_subnetworks = false
-  subnet_name = iac-subnet
+  subnet_name = "iac-subnet"
   subnet_cidr_range = "10.0.0.0/24"
   region = "us-west1"
   private_ip_google_access = false
@@ -33,7 +33,7 @@ resource "google_compute_instance" "default" {
   }
 
   network_interface {
-    subnetwork    = google_compute_subnetwork.iac-subnet.name
+    subnetwork    = "iac-subnet" #google_compute_subnetwork.iac-subnet.name
     access_config {}
     # address       = "${var.network_ip}"
   }
