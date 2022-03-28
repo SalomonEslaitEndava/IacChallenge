@@ -7,7 +7,7 @@ variable "networkname" {
 variable "auto_create_subnetworks" {
     description = "subnet creation flag"
     type = bool
-    default = ""
+    default = false
 }
 
 variable "subnet_name" {
@@ -31,7 +31,7 @@ variable "region" {
 variable "private_ip_google_access" {
     description = "private ip access"
     type = bool
-    default = ""
+    default = false
 }
 
 variable "firewall_rule_name" {
