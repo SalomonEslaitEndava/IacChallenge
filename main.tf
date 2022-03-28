@@ -1,7 +1,6 @@
 
-
 resource "google_compute_network" "iac-network" {
-  name                    = "iac-network"
+  name                    = var.networkname # "iac-network"
   auto_create_subnetworks = false
 }
 
