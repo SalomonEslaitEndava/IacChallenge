@@ -10,15 +10,6 @@ variable "region" {
 variable "zone" {
     default = "us-west1-a"   
  }
-variable "hostname" {
-    default = "app.terraform.io"
- }
-variable "organization" {
-    default = "salomon"  
-}
-variable "workspacename" {
-    default = "iacChallenge"
-}
 variable "networkname" {
     default = "iac-network"
 }

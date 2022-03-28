@@ -1,16 +1,17 @@
+module "networking"{
+  source = "./src/modules/network"
 
-resource "google_compute_network" "iac-network" {
-  name                    = var.networkname # "iac-network"
+  networkname = "iac-network"
   auto_create_subnetworks = false
-}
-
-resource "google_compute_subnetwork" "iac-subnet" {
-  name                     = "iac-subnet"
-  ip_cidr_range            = "10.0.0.0/24"
-  network                  = google_compute_network.iac-network.self_link
-  region                   = "us-west1"
+  subnet_name = iac-subnet
+  subnet_cidr_range = "10.0.0.0/24"
+  region = "us-west1"
   private_ip_google_access = false
-}
+  firewall_rule_name = "ssh-rule"
+  source_ranges = ["0.0.0.0/0"]
+  protocol = "tcp"
+  ports = ["80"]
+  }
 
 resource "google_compute_instance" "default" {
   count                     = 1
@@ -41,16 +42,16 @@ resource "google_compute_instance" "default" {
 
 }
 
-resource "google_compute_firewall" "ssh" {
-  name    = "ssh-rule"
-  network = google_compute_network.iac-network.self_link
-  # destination_ranges = [ "0.0.0.0/0" ]
-  source_ranges = [ "0.0.0.0/0" ]
-  allow {
-    protocol = "tcp"
-    ports    = ["22","80"]
-  }
+# resource "google_compute_firewall" "ssh" {
+#   name    = "ssh-rule"
+#   network = google_compute_network.iac-network.self_link
+#   # destination_ranges = [ "0.0.0.0/0" ]
+#   source_ranges = [ "0.0.0.0/0" ]
+#   allow {
+#     protocol = "tcp"
+#     ports    = ["22","80"]
+#   }
 
-  #source_tags = ["iac-bastion"]
-  #target_tags = ["iac-ssh"]
-}
+#   #source_tags = ["iac-bastion"]
+#   #target_tags = ["iac-ssh"]
+# }
