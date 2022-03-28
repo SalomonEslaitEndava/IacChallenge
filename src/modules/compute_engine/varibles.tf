@@ -33,3 +33,7 @@ variable "instance_image" {
   type        = string
   default     = ""
 }
+
+variable "subnetwork" {
+  
+}
