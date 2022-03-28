@@ -22,5 +22,5 @@ resource "google_compute_firewall" "ssh" {
   }
 
   #source_tags = ["iac-bastion"]
-  #target_tags = ["iac-ssh"]
+  #target_tags = ["iac-ssh"] 
 }
