@@ -21,5 +21,5 @@ module "compute_engine"{
   instance_zone = "us-west1-a"
   machine_type = "f1-micro"
   allow_stopping_for_update = true
-  instace_image = "centos-cloud/centos-7"
+  instance_image = "centos-cloud/centos-7"
 }
