@@ -1,15 +1,18 @@
 variable "GOOGLE_CREDENTIALS" {
 
 }
-
 variable "project" {
     default = "iac-challenge"
  }
-
- variable "region" {
+variable "region" {
    default = "us-west1"
  }
-
- variable "zone" {
+variable "zone" {
      default = "us-west1-a"   
  }
+variable "hostname" {
+     default = "app.terraform.io"
+ }
+variable "organization" {
+    default = "salomon"  
+}
