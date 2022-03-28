@@ -16,3 +16,6 @@ variable "hostname" {
 variable "organization" {
     default = "salomon"  
 }
+variable "workspacename" {
+    default = "iacChallenge"
+}
