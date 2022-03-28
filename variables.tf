@@ -2,14 +2,14 @@ variable "GOOGLE_CREDENTIALS" {
 
 }
 variable "project" {
-    default = "iac-challenge"
- }
+  default = "iac-challenge"
+}
 variable "region" {
-   default = "us-west1"
- }
+  default = "us-west1"
+}
 variable "zone" {
-    default = "us-west1-a"   
- }
+  default = "us-west1-a"
+}
 variable "networkname" {
-    default = "iac-network"
+  default = "iac-network"
 }
