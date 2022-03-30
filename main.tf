@@ -1,7 +1,7 @@
 module "networking" {
   source = "./src/modules/network"
 
-  networkname              = "iacnetwork"
+  networkname              = "iac-network"
   auto_create_subnetworks  = false
   subnet_name              = "iac-subnet"
   subnet_cidr_range        = "10.0.0.0/24"
